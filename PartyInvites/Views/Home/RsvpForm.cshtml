@@ -1,0 +1,96 @@
+﻿@model PartyInvites.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    
+     <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+     <meta name="viewport" content="width=device-width" />
+    <link href="~/Content/Styles.css" rel="stylesheet"/>
+    <title>EnrollmentForm</title>
+</head>
+
+<body>
+    <style>
+        body {
+            background-color:violet;
+        }
+    </style>
+<div class="panel panel-success">
+    <div class="panel-heading text-center"><h4>Grant Chirpus Coding Dojo Enrollment Application</h4></div>
+    <div class="panel-body">
+@using (Html.BeginForm())
+{
+
+
+    <div>
+        Male:   @Html.RadioButton("Gender", "Male")
+        Female: @Html.RadioButton("Gender", "Female")
+    </div>
+
+
+
+
+
+
+     @Html.ValidationSummary()
+    <div class="form-group">
+        <label>Your name:</label>
+    @Html.TextBoxFor(x => x.name, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>Your email</label>
+            @Html.TextBoxFor(x => x.email, new { @class = "form-control" })
+    </div>
+    <div class="form-group">
+        <label>Your phone</label>
+        @Html.TextBoxFor(x => x.phone, new { @class = "form-control" })
+        </div>
+        <div class="form-group">
+            <label>What class are you interested in ?</label>
+            @Html.DropDownListFor(x => x.WillAttend, new[] {
+           new SelectListItem() {Text = ".net Coding Bootcamp",
+           Value = bool.TrueString },
+           new SelectListItem() {Text = "JAVA Bootcamp",
+           Value = bool.FalseString }
+       }, "Choose an option", new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label>Have you done any coding in the past?</label>
+                @Html.DropDownListFor(x => x.experience, new[] {
+           new SelectListItem() {Text = "Yes, I have done some coding in the past",
+           Value = bool.TrueString },
+           new SelectListItem() {Text = "No, What is this coding thingy?",
+           Value = bool.FalseString }
+       }, "Choose an option", new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label>Are you ready to be a coding warrior?</label>
+                @Html.CheckBox("isCodingWarrior")
+        </div>
+
+       
+
+
+                     <div class="text-center">
+                    <input class="btn btn-success" type="submit" value="Enroll Now" />
+                </div>
+
+
+
+
+
+
+                }
+            </div>
+    </div>
+</body>
+</html>

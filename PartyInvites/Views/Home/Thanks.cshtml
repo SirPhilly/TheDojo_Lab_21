@@ -1,0 +1,74 @@
+﻿@model PartyInvites.Models.GuestResponse
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/bootstrap-theme.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+    <style>
+        body {background-color:chartreuse;}
+    </style>
+</head>
+<body>
+   
+   <div class="text-center">
+       <h1>Thank you, @Model.name!</h1>
+       <div class="lead">
+           @if (Model.WillAttend == true)
+           {
+               @:Thank you young grasshopper. Soon you too will learn to be a coding ninja!
+           } else
+           {
+               @:Sorry to hear that you are not ready for ninja school, Maybe one day you will have the strength.
+           }
+       
+    <div>
+        @if (Model.WillAttend == true)
+        {
+            @:Thank you for choosing .net! The path of a true warrior !
+        }else
+        {
+            @:Thank you for choosing JAVA . This is the path less traveled but in time you too will be a coding warrior !
+        }
+
+        </div>
+
+
+
+
+           <div>
+               @if (Model.experience == true)
+               {
+                   @:Good to hear that you have some experience with coding !
+               }
+               else
+               {
+                   @:No worries , Not everyone has coding experience...At least you expressed interest !
+               }
+
+        </div>
+            
+           <div>
+               @if (Model.isCodingWarrior == true)
+               {
+                 @:  YES! I knew you were a coding warrior ! We look forward to seeing you !
+               }else
+               {
+                   @: Sorry you dont feel like a coding warrior...Soon though your opinion of yourself will change!
+               }
+
+
+               </div>
+
+         
+           </div>
+   </div>
+</body>
+</html>
